@@ -78,12 +78,6 @@ This project is licensed under the [MIT License](LICENSE).
 
 ---
 
-## Contact
-For questions or feedback, feel free to reach out:
-- **Email**: rodiengorg@gmail.com
-- **GitHub**: [RodienJillian](https://github.com/RodienJillian)
-
-
 ## Project Collaboration
 
 This project was developed in collaboration with:
