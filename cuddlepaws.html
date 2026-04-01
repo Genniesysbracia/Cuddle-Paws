@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CuddlePaws – Pet Care Shop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link href="cuddlepaws.css" rel="stylesheet">
+</head>
+<body>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h1>CuddlePaws</h1>
+      <p>Is an online pet care shop built on one simple belief: your pets are family. We started CuddlePaws because we know the unique bond between humans and their animals — and we wanted to make it easier to care for that bond.</p>
+    </div>
+    <div class="paw-badge">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="50" cy="68" rx="22" ry="20"/>
+        <ellipse cx="24" cy="46" rx="10" ry="13"/>
+        <ellipse cx="76" cy="46" rx="10" ry="13"/>
+        <ellipse cx="36" cy="28" rx="8"  ry="10"/>
+        <ellipse cx="64" cy="28" rx="8"  ry="10"/>
+      </svg>
+    </div>
+  </section>
+
+
+  <div class="section">
+    <p class="section-title">Features of CuddlePaws</p>
+    <div class="features-card">
+
+      <h3>Shopping</h3>
+      <ul>
+        <li>Browse products by category (food, accessories, grooming, etc.)</li>
+        <li>Product listings with images, names, and prices</li>
+        <li>Add to cart functionality with quantity controls</li>
+      </ul>
+
+      <h3>Cart &amp; Checkout</h3>
+      <ul>
+        <li>Shopping cart that tracks selected items</li>
+        <li>Checkout flow for completing purchases</li>
+        <li>Order summary before finalising</li>
+      </ul>
+
+      <h3>User Accounts</h3>
+      <ul>
+        <li>Log In / Sign Up system for personal accounts</li>
+        <li>Account management for returning customers</li>
+        <li>Order history and profile settings</li>
+      </ul>
+
+      <h3>Search</h3>
+      <ul>
+        <li>Search bar in the navigation to find products quickly</li>
+      </ul>
+
+    </div>
+  </div>
+
+  <!-- PAGE PREVIEWS CAROUSEL -->
+  <div class="section" style="padding-top:0">
+    <p class="section-title">A Look Inside CuddlePaws</p>
+    <p class="section-sub">Explore our clean, warm, and easy-to-navigate website. From the welcoming homepage to the organised shop and smooth checkout — every page is designed with you (and your pets) in mind.</p>
+
+    <div class="carousel-wrapper">
+
+      <button class="carousel-btn prev" onclick="moveSlide(-1)">&#8249;</button>
+      <button class="carousel-btn next" onclick="moveSlide(1)">&#8250;</button>
+
+      <div class="carousel-track-outer">
+        <div class="carousel-track" id="carouselTrack">
+
+          <!-- HOME PAGE -->
+          <div class="carousel-slide">
+            <img src="home.png" alt="Home Page" onerror="this.style.background='#FAD99A';this.removeAttribute('src')"/>
+            <span class="slide-label">Home Page</span>
+          </div>
+
+          <!-- SHOP -->
+          <div class="carousel-slide">
+            <img src="shop.png" alt="Shop" onerror="this.style.background='#FAD99A';this.removeAttribute('src')"/>
+            <span class="slide-label">Shop</span>
+          </div>
+
+          <!-- CART -->
+          <div class="carousel-slide">
+            <img src="cart.png" alt="Cart" onerror="this.style.background='#FAD99A';this.removeAttribute('src')"/>
+            <span class="slide-label">Cart</span>
+          </div>
+
+          <!-- CHECKOUT -->
+          <div class="carousel-slide">
+            <img src="checkout.png" alt="Checkout" onerror="this.style.background='#FAD99A';this.removeAttribute('src')"/>
+            <span class="slide-label">Checkout</span>
+          </div>
+
+          <!-- LOGIN/SIGNUP -->
+          <div class="carousel-slide">
+            <img src="account-register.png" alt="Login / Signup" onerror="this.style.background='#FAD99A';this.removeAttribute('src')"/>
+            <span class="slide-label">Login / Signup</span>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Dots -->
+      <div class="carousel-dots" id="carouselDots"></div>
+    </div>
+  </div>
+
+  <script>
+    let current = 0;
+    const slides = document.querySelectorAll('.carousel-slide');
+    const track  = document.getElementById('carouselTrack');
+    const dotsEl = document.getElementById('carouselDots');
+
+    // Build dots
+    slides.forEach((_, i) => {
+      const d = document.createElement('div');
+      d.className = 'dot' + (i === 0 ? ' active' : '');
+      d.onclick = () => goTo(i);
+      dotsEl.appendChild(d);
+    });
+
+    function goTo(n) {
+      current = (n + slides.length) % slides.length;
+      track.style.transform = `translateX(-${current * 100}%)`;
+      document.querySelectorAll('.dot').forEach((d, i) =>
+        d.classList.toggle('active', i === current));
+    }
+
+    function moveSlide(dir) { goTo(current + dir); }
+
+    // Auto-play
+    setInterval(() => moveSlide(1), 4000);
+  </script>
+
+  <footer>© 2024 CuddlePaws · Developed by: Bracia-Genniesys | Delos Santos, Zeldrick | Ellorando, Jillian</footer>
+
+</body>
+</html>
